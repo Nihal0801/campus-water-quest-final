@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffc907">
+  <meta name="description" content="Choose your challenge in Campus Water Quest. Collect yellow jerry cans, avoid spills, and learn about charity: water.">
+  <title>Campus Water Quest | A charity: water inspired game</title>
+  <link rel="icon" href="img/water-can.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#quest">Skip to the game</a>
+  <header class="site-header">
+    <a href="https://www.charitywater.org" target="_blank" rel="noopener noreferrer" aria-label="Visit charity: water (opens in a new tab)"><img class="brand" src="img/cw_logo_horizontal.png" alt="charity: water" width="500" height="59"></a>
+    <span class="edition">THE CAMPUS EDITION <span aria-hidden="true">↗</span></span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="little-drop" aria-hidden="true"></span> A LITTLE PLAY. A BIGGER PURPOSE.</div>
+      <h1 id="page-title">Campus <br>Water <span>Quest.</span></h1>
+      <p class="intro-copy">Your next study break has a mission.<br>Collect cans. Dodge spills. Choose your challenge.</p>
+      <div class="rules" aria-label="How to play">
+        <div class="rule"><span class="rule-icon can"><img src="img/water-can.png" alt="" width="32" height="38"></span><div><strong>Catch a can</strong><span>+10 points</span></div></div>
+        <div class="rule"><span class="rule-icon spill" aria-hidden="true">×</span><div><strong>Avoid a spill</strong><span><span id="penalty-rule">−5 points, minimum 0</span></span></div></div>
+        <div class="rule"><span class="rule-icon clock" aria-hidden="true">◷</span><div><strong>Make it count</strong><span><span id="win-rule">100+ points at 30 seconds wins</span></span></div></div>
+      </div>
+      <div class="mission-note"><span class="note-number" aria-hidden="true">01 /</span><p><strong>Small game. Real mission.</strong> Clean water close to home can mean more time for school. <a href="https://www.charitywater.org/global-water-crisis/education" target="_blank" rel="noopener noreferrer">Meet the mission <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></p></div>
+    </section>
+    <section class="quest" id="quest" aria-label="Water Quest game">
+      <div class="game-topline"><span><span class="status-dot" aria-hidden="true"></span> <span id="round-status">READY WHEN YOU ARE</span></span><span id="round-edition">NORMAL · 30 SECONDS</span></div>
+      <div class="game-options">
+        <label for="difficulty">YOUR CHALLENGE
+          <select id="difficulty" aria-describedby="difficulty-detail">
+            <option value="easy">Easy</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false">Sound off</button>
+      </div>
+      <p id="difficulty-detail" class="difficulty-detail">30 seconds · 100-point goal · −5 per spill</p>
+      <div class="stats">
+        <div><span class="stat-label">YOUR SCORE</span><strong><span id="score">0</span><small> pts</small></strong></div>
+        <div class="time-stat"><span class="stat-label">TIME LEFT</span><strong><span id="timer">30</span><small> sec</small></strong></div>
+      </div>
+      <div class="progress-label"><span id="goal-label">The goal: 100 points</span><span id="progress-text">0 / 100</span></div>
+      <div id="goal-progress" class="progress-track" role="progressbar" aria-label="Progress toward 100 points" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill"></div></div>
+      <div class="board-wrap">
+        <div class="game-grid" id="board" role="group" aria-label="Nine tiles. Use keys 1 to 9 or tap a tile."></div>
+        <div class="board-overlay" id="overlay">
+          <div class="overlay-card">
+            <span class="overlay-art" id="overlay-art" aria-hidden="true"><img src="img/water-can.png" alt="" width="55" height="66"></span>
+            <h2 id="overlay-title" tabindex="-1">Ready for a little good?</h2>
+            <p id="overlay-copy">Tap the yellow cans as they pop up.<br>Leave the spills alone.</p>
+            <button class="primary" id="start-game">Start my quest <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+      </div>
+      <p id="feedback" class="feedback" role="status" aria-live="polite" aria-atomic="true">One can at a time. You've got this.</p>
+      <p id="milestone" class="milestone" role="status" aria-live="polite">Your milestones: 25% · 50% · 75% · Goal</p>
+      <div class="controls"><button class="secondary" id="pause-game" disabled>Pause</button><button class="secondary" id="reset-game">Reset <span aria-hidden="true">↺</span></button></div>
+      <p class="keyboard-hint">Tap or click · Keyboard: <kbd>1</kbd>–<kbd>9</kbd> · <kbd>P</kbd> to pause</p>
+      <div id="result-mission" class="result-mission" hidden><strong>Water changes the school day.</strong><p>Clean water nearby gives kids more time to learn and dream. Every player gets to meet that story.</p><a href="https://www.charitywater.org/global-water-crisis/education" target="_blank" rel="noopener noreferrer">Learn about clean water and education ↗</a></div>
+      <noscript><p class="noscript">Please enable JavaScript to play this game.</p></noscript>
+    </section>
+  </main>
+  <footer><span>A student game by Nihal Patel · Inspired by charity: water</span><span>Play for awareness. Points are not donations or water delivered.</span><nav aria-label="Support clean water"><a href="https://www.charitywater.org" target="_blank" rel="noopener noreferrer">Visit charity: water ↗</a><a class="donate-link" href="https://www.charitywater.org/donate" target="_blank" rel="noopener noreferrer">Donate for clean water ↗</a></nav></footer>
+  <div id="confetti" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
